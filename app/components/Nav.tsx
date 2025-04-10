@@ -17,7 +17,7 @@ const Nav = () => {
   const linkStyle = {
     height:
       showLinks && linksRef.current
-        ? `${linksRef.current.getBoundingClientRect().height}px`
+        ? `${linksRef.current.getBoundingClientRect().height + 15}px`
         : "0px",
   };
   
@@ -80,11 +80,11 @@ const Nav = () => {
             </button>
           </div>
         </div>
-        <div className={`text-white my-5 tracking-wider font-bold overflow-hidden transition-all duration-500 ease-in-out ${
+        <div className={`text-white tracking-wider font-bold overflow-hidden transition-all duration-500 ease-in-out ${
     showLinks ? 'opacity-100 visible' : 'opacity-0 invisible'
   }`} ref={navHeight} style={linkStyle}>
           <ul className='' ref={linksRef}>
-            <li>
+            <li className="border-t-2 mt-8">
               <a
                 href='?#'
                 className='text-lime-100 hover:text-lime-950 hover:bg-lime-100 duration-300 flex justify-between items-center p-5'
