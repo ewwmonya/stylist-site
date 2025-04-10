@@ -8,17 +8,19 @@ import { TiShoppingCart } from "react-icons/ti";
 const Nav = () => {
   const [showLinks, setShowLinks] = useState(false);
   const navHeight = useRef(null);
-  const linksRef = useRef(null)
+  const linksRef = useRef<HTMLUListElement>(null)
 
   const toggleShowLinks = () => {
     setShowLinks(!showLinks)
   };
 
   const linkStyle = {
-    height: showLinks 
-    ? `${linksRef.current.getBoundingClientRect().height}px` : '0px'
-
-  }
+    height:
+      showLinks && linksRef.current
+        ? `${linksRef.current.getBoundingClientRect().height}px`
+        : "0px",
+  };
+  
   
 
 
@@ -51,7 +53,7 @@ const Nav = () => {
             </a>
           </div>
           <div className='flex justify-between items-center gap-8'>
-            <button className='text-white flex items-center gap-1 bg-green-900 hover:bg-green-800 hover:scale-105 py-1 px-3 rounded-sm duration-500'>
+            <button className='text-white flex items-center gap-1 bg-green-900 hover:bg-green-800 hover:scale-105 py-1 px-3 rounded-sm dur'>
               Login <FiLogIn />{" "}
             </button>
 
