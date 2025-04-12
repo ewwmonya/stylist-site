@@ -37,19 +37,19 @@ const Nav = () => {
           {/* Links */}
 
           <div className='flex justify-center gap-x-6'>
-            <a href='?#' className='text-lime-100'>
+            <a href='?#' className='text-yellow-300 font-bold'>
               Home
             </a>
-            <a href='?#' className='text-lime-100'>
+            <a href='?#' className='text-lime-100 hover:underline hover:underline-offset-4 duration-300'>
               Services
             </a>
-            <a href='?#' className='text-lime-100'>
+            <a href='?#' className='text-lime-100 hover:underline hover:underline-offset-4 duration-300'>
               Shop Merch
             </a>
-            <a href='?#' className='text-lime-100'>
+            <a href='?#' className='text-lime-100 hover:underline hover:underline-offset-4 duration-300'>
               Blog
             </a>
-            <a href='?#' className='text-lime-100'>
+            <a href='?#' className='text-lime-100 hover:underline hover:underline-offset-4 duration-300'>
               About Us
             </a>
           </div>
