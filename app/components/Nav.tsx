@@ -9,6 +9,7 @@ const Nav = () => {
   const [showLinks, setShowLinks] = useState(false);
   const navHeight = useRef(null);
   const linksRef = useRef<HTMLUListElement>(null)
+  console.log(linksRef);
 
   const toggleShowLinks = () => {
     setShowLinks(!showLinks)
@@ -25,7 +26,7 @@ const Nav = () => {
 
 
   return (
-    <header className='bg-green-950 px-6 py-8 border-b'>
+    <header className='bg-green-950 px-6 py-8'>
       <div className='hidden lg:block'>
         <div className=' flex justify-between gap-4 items-center'>
           {/* Logo */}
@@ -84,7 +85,7 @@ const Nav = () => {
     showLinks ? 'opacity-100 visible' : 'opacity-0 invisible'
   }`} ref={navHeight} style={linkStyle}>
           <ul className='' ref={linksRef}>
-            <li className="border-t-2 mt-8">
+            <li className={`border-t-2 mt-8`}>
               <a
                 href='?#'
                 className='text-lime-100 hover:text-lime-950 hover:bg-lime-100 duration-300 flex justify-between items-center p-5'
