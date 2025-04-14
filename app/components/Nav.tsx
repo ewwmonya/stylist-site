@@ -45,8 +45,8 @@ const Nav = () => {
 
           <div className='flex justify-center gap-x-6'>
             {navLinks.map((link)=>{
-              const {name, path} = link
-              return <Link href={path} key={nanoid(5)} className={`${pathName === path ? "text-yellow-300 font-bold" : "text-lime-100 hover:underline hover:underline-offset-4 duration-300"}`}>
+              const {name, path, id} = link
+              return <Link href={path} key={id} className={`${pathName === path ? "text-yellow-300 font-bold" : "text-lime-100 hover:underline hover:underline-offset-4 duration-300"}`}>
               {name}
             </Link>
             })}
@@ -84,8 +84,8 @@ const Nav = () => {
   }`} ref={navHeight} style={linkStyle}>
           <ul className='' ref={linksRef}>
           {navLinks.map((link)=>{
-              const {name, path} = link
-              return <li className={``} key={nanoid(5)}>
+              const {name, path,id} = link
+              return <li className={``} key={id}>
 
                  <Link href={path}  className={`${pathName === path ? "text-yellow-300 font-bold" : "text-lime-100 hover:underline hover:underline-offset-4 duration-300"} text-lime-100 hover:text-lime-950 hover:bg-lime-100 duration-300 flex justify-between items-center p-5`}>
               {name} <GrLinkNext className='text-green-950 font-bold' />
