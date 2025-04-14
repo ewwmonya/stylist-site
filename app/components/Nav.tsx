@@ -6,9 +6,8 @@ import { GrLinkNext } from "react-icons/gr";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { TiShoppingCart } from "react-icons/ti";
 
-import { navLinks } from "../../navLinks";
+import { navLinks } from "../../data/navLinks";
 import { usePathname } from "next/navigation";
-import { nanoid } from "nanoid";
 
 
 const Nav = () => {
