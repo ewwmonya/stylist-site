@@ -1,15 +1,22 @@
 "use client"
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { FiLogIn } from "react-icons/fi";
 import { GrLinkNext } from "react-icons/gr";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { TiShoppingCart } from "react-icons/ti";
 
+import { navLinks } from "../../navLinks";
+import { usePathname } from "next/navigation";
+import { nanoid } from "nanoid";
+
+
 const Nav = () => {
+  const pathName = usePathname()
+
   const [showLinks, setShowLinks] = useState(false);
   const navHeight = useRef(null);
   const linksRef = useRef<HTMLUListElement>(null)
-  console.log(linksRef);
 
   const toggleShowLinks = () => {
     setShowLinks(!showLinks)
@@ -37,21 +44,12 @@ const Nav = () => {
           {/* Links */}
 
           <div className='flex justify-center gap-x-6'>
-            <a href='?#' className='text-yellow-300 font-bold'>
-              Home
-            </a>
-            <a href='?#' className='text-lime-100 hover:underline hover:underline-offset-4 duration-300'>
-              Services
-            </a>
-            <a href='?#' className='text-lime-100 hover:underline hover:underline-offset-4 duration-300'>
-              Shop Merch
-            </a>
-            <a href='?#' className='text-lime-100 hover:underline hover:underline-offset-4 duration-300'>
-              Blog
-            </a>
-            <a href='?#' className='text-lime-100 hover:underline hover:underline-offset-4 duration-300'>
-              About Us
-            </a>
+            {navLinks.map((link)=>{
+              const {name, path} = link
+              return <Link href={path} key={nanoid(5)} className={`${pathName === path ? "text-yellow-300 font-bold" : "text-lime-100 hover:underline hover:underline-offset-4 duration-300"}`}>
+              {name}
+            </Link>
+            })}
           </div>
           <div className='flex justify-between items-center gap-8'>
             <button className='text-white flex items-center gap-1 bg-green-900 hover:bg-green-800 hover:scale-105 py-1 px-3 rounded-sm dur'>
@@ -81,50 +79,19 @@ const Nav = () => {
             </button>
           </div>
         </div>
-        <div className={`text-white tracking-wider font-bold overflow-hidden transition-all duration-500 ease-in-out ${
+        <div className={`text-white tracking-wider font-bold overflow-hidden transition-all duration-500 ease-in-out mt-10 ${
     showLinks ? 'opacity-100 visible' : 'opacity-0 invisible'
   }`} ref={navHeight} style={linkStyle}>
           <ul className='' ref={linksRef}>
-            <li className={`border-t-2 mt-8`}>
-              <a
-                href='?#'
-                className='text-lime-100 hover:text-lime-950 hover:bg-lime-100 duration-300 flex justify-between items-center p-5'
-              >
-                Home <GrLinkNext className='text-green-950 font-bold' />
-              </a>
+          {navLinks.map((link)=>{
+              const {name, path} = link
+              return <li className={``} key={nanoid(5)}>
+
+                 <Link href={path}  className={`${pathName === path ? "text-yellow-300 font-bold" : "text-lime-100 hover:underline hover:underline-offset-4 duration-300"} text-lime-100 hover:text-lime-950 hover:bg-lime-100 duration-300 flex justify-between items-center p-5`}>
+              {name} <GrLinkNext className='text-green-950 font-bold' />
+            </Link>
             </li>
-            <li>
-              <a
-                href='?#'
-                className='text-lime-100 hover:text-lime-950 hover:bg-lime-100 duration-300 flex justify-between items-center p-5'
-              >
-                Services <GrLinkNext className='text-green-950 font-bold' />
-              </a>
-            </li>
-            <li>
-              <a
-                href='?#'
-                className='text-lime-100 hover:text-lime-950 hover:bg-lime-100 duration-300 flex justify-between items-center p-5'
-              >
-                Shop Merch <GrLinkNext className='text-green-950 font-bold' />
-              </a>
-            </li>
-            <li>
-              <a
-                href='?#'
-                className='text-lime-100 hover:text-lime-950 hover:bg-lime-100 duration-300 flex justify-between items-center p-5'
-              >
-                Blog <GrLinkNext className='text-green-950 font-bold' />
-              </a>
-            </li>
-            <li>
-              <a
-                href='?#'
-                className='text-lime-100 hover:text-lime-950 hover:bg-lime-100 duration-300 flex justify-between items-center p-5'
-              >
-                About Us <GrLinkNext className='text-green-950 font-bold' />
-              </a>
-            </li>
+            })}
           </ul>
         </div>
       </div>
