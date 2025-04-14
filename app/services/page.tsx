@@ -1,8 +1,16 @@
+import { services } from "@/data/services"
+import Card from "../components/Card"
+
 const ServicesPage = () => {
   return (
     <main className="min-h-screen px-6 py-10">
-    <h1 className="text-4xl font-bold mb-8">Our Services</h1>
+    <h2 className="text-3xl font-sans mb-8 tracking-wider">Services</h2>
 
+    <div className="flex flex-wrap justify-between gap-x-6 items-center">
+        {services.map((service)=>{
+            return <Card key={service.category} {...service} />
+        })}
+            </div> 
     </main>
   )
 }
